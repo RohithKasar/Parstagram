@@ -37,8 +37,12 @@ class LogInViewController: UIViewController {
         user.username = usernameField.text!
         user.password = passwordField.text!
         
+        
+        
         user.signUpInBackground { (success, error) in
             if (success) {
+                //self.performSegue(withIdentifier: "signUpSegue", sender: nil)
+                
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             } else {
                 print("Error: \(error?.localizedDescription ?? "yeet")")

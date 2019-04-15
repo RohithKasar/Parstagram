@@ -35,7 +35,7 @@ extension UITextView: UITextViewDelegate {
     }
     
     /// The UITextView placeholder text
-    public var placeholder: String? {
+    public var placeholder2: String? {
         get {
             var placeholderText: String?
             

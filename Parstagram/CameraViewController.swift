@@ -16,14 +16,20 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     @IBOutlet weak var captionView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        captionView.placeholder = "Add a caption..."
+        self.captionView.layer.borderColor = UIColor.lightGray.cgColor
+        self.captionView.layer.borderWidth = 1
+        captionView.placeholder2 = "Add a caption..."
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func onSubmit(_ sender: Any) {
         let post = PFObject(className: "Posts")
         post["caption"] = captionView.text
         post["author"] = PFUser.current()!
+        post["favorite"] = false
         
         let imageData = imageView.image!.pngData()
         let file = PFFileObject(data: imageData!)
